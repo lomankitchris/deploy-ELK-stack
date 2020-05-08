@@ -1,0 +1,11 @@
+---
+- hosts: all
+
+- name: deploy filebeat to cluster
+  set_fact:
+    java_packages:
+      - openjdk-8jdk
+    when: ansible_os_family == 'Debian'
+
+  roles:
+    - filebeat
